@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Sudoku Challenge</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const seed = urlParams.get('seed');
+            const diff = urlParams.get('diff');
+            
+            // App Deep Link
+            const appUrl = "sudoku://challenge?type=sudoku&seed=" + seed + "&diff=" + diff;
+            // Play Store Link
+            const playStoreUrl = "https://play.google.com/store/apps/details?id=vnr.gupta.maram.sudoku";
+            
+            // Try opening app first
+            window.location.href = appUrl;
+            
+            // Fallback to Play Store if app is not installed
+            setTimeout(function() {
+                window.location.href = playStoreUrl;
+            }, 1500);
+        };
+    </script>
+</head>
+<body style="background:#0F172A; color:#E2E8F0; font-family:sans-serif; text-align:center; padding:50px;">
+    <h2>AI Sudoku: Master Scan & Play</h2>
+    <p>Opening challenge in app...</p>
+</body>
+</html>
